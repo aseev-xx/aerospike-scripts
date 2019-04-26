@@ -1,0 +1,65 @@
+mprof: Sampling memory every 0.1s
+Filename: smart.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+    49     13.6 MiB     13.6 MiB   @profile
+    50                             def one_proc():
+    51     13.6 MiB      0.0 MiB       disks = get_disks()
+    52                             
+    53     13.6 MiB      0.0 MiB       result = []
+    54                             
+    55     14.4 MiB      0.0 MiB       for disk in disks:
+    56     14.4 MiB      0.2 MiB           result.append(format_smart_output(ret_smart(disk)))
+
+
+Total time: 2.6718592643737793
+Filename: smart.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+    49     14.4 MiB     14.4 MiB   @profile
+    50                             def one_proc():
+    51     14.4 MiB      0.0 MiB       disks = get_disks()
+    52                             
+    53     14.4 MiB      0.0 MiB       result = []
+    54                             
+    55     14.6 MiB      0.0 MiB       for disk in disks:
+    56     14.6 MiB      0.0 MiB           result.append(format_smart_output(ret_smart(disk)))
+
+
+Total time: 2.706131935119629
+Complete result: 
+Average time: 2.688995599746704 seconds
+Median time: 2.6718592643737793 seconds
+Variance: 0.0005873079800267078 seconds
+Filename: smart.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+    58     14.6 MiB     14.6 MiB   @profile
+    59                             def multi_proc():
+    60     14.6 MiB      0.0 MiB       disks = get_disks()
+    61                             
+    62     14.6 MiB      0.1 MiB       with multiprocessing.Pool(processes=len(disks)) as pool:
+    63     15.0 MiB      0.4 MiB           result = pool.map(ret_smart, disks)
+
+
+Total time: 1.0627927780151367
+Filename: smart.py
+
+Line #    Mem usage    Increment   Line Contents
+================================================
+    58     15.0 MiB     15.0 MiB   @profile
+    59                             def multi_proc():
+    60     15.0 MiB      0.0 MiB       disks = get_disks()
+    61                             
+    62     15.1 MiB      0.0 MiB       with multiprocessing.Pool(processes=len(disks)) as pool:
+    63     15.3 MiB      0.2 MiB           result = pool.map(ret_smart, disks)
+
+
+Total time: 1.0378258228302002
+Complete result: 
+Average time: 1.0503093004226685 seconds
+Median time: 1.0378258228302002 seconds
+Variance: 0.0003116744256033144 seconds
