@@ -21,6 +21,6 @@ graphite_prefix.ae.ns_n2.set_n21 261
 
 Dashboard example
 
-![ns_sets](/img/ns_sets.png)
+![ns_sets](/aerospike/img/ns_sets.png)
 
 ***
